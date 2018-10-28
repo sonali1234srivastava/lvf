@@ -133,7 +133,7 @@
      <a href="./login/index.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">LOGIN</span></button></a>	
    </div>
    <div style=" float:left; display:inline; text-align: center; width:50%; height:100%; ">
-     <a href="./registration/index.php" type="button" class="btn btn-success"><b>REGISTER</b></a>	
+     <a href="./registration/index.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">REGISTER</span></button></a>	
    </div>
  </div>
 
