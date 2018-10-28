@@ -6,7 +6,9 @@ include '../../core_session.php';
 include '../../connect_db.php';
 include '../../header.php';
 
-
+if(isset($_SESSION["student_id"])&& !empty($_SESSION["student_id"])){
+  header('location: index.php');
+}
 /*if(loggedin())
 {
 
@@ -154,24 +156,15 @@ $(function(){
      
      if(data == 100)
      {
-        
+          window.location="index.php" ;
+
        /*if(isset($_SESSION["student_id"])&& !empty($_SESSION["student_id"]))
        {
 
        header('Location: leave_forms.php');
 
        }*/
-   <?php
-  if(loggedin())
-  {
-        //echo 'window.location.href= "leave_forms.php"' ;
-        /*header("Refresh: 2; url=leave_forms.php");
-        echo 'welcome!!';*/
-        //header("Location: leave_forms.php");
-  header("Location: index.php");
-        //exit();
-  }
- ?>
+        
 
      /*window.location.href = "leave_form.php" ;*/
      

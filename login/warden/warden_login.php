@@ -24,10 +24,10 @@ if(isset($_POST["username"]) && isset($_POST["password"]))
     $username =test_input($_POST["username"]);
     $password = test_input($_POST["password"]);   
    
-    if(!preg_match("/^[a-zA-Z0-9]*$/", $username) || strlen($username)!=7)
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $username))
     {
       $check = 0;
-      echo '<div class = "alert alert-danger">Only valid student number.</div>';
+      echo '<div class = "alert alert-danger">Only valid warden id.</div>';
     }
     else
     {

@@ -41,7 +41,7 @@ if(isset($_SESSION["warden_id"])&& !empty($_SESSION["warden_id"])){
 $(function(){
 
    $.validator.addMethod( "username", function( value, element ) {
-  return this.optional( element ) || /^[a-zA-Z0-9]+$/i.test( value ) && value.length==7;
+  return this.optional( element ) || /^[a-zA-Z0-9]+$/i.test( value );
     }, "Valid warden username only please!!" );
 
    $.validator.addMethod( "password", function( value, element ) {
@@ -151,7 +151,7 @@ $(function(){
      
      if(data == 100)
      { //console.log("hh");
-      window.location="index.php"
+      window.location="index.php";
            
      }
      else{

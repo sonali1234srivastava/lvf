@@ -68,8 +68,11 @@ if(isset($_POST["username"]) && isset($_POST["password"]))
               if($verify == '1')
               {  
                   $_SESSION["student_id"] = $student_id;
-          
+                 
+                 if(isset($_SESSION["student_id"])&& !empty($_SESSION["student_id"]))
+                 { 
                   echo "100" ;
+                 }
               }  // not verified by warden
               else{
                 echo 'Please wait for warden verification first.' ;
