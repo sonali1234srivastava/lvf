@@ -1,8 +1,8 @@
 <?php
 
-include '../../core_session.php';
-include '../../header.php';
-include '../../connect_db.php';
+// include '../../core_session.php';
+// include '../../header.php';
+// include '../../connect_db.php';
 
 // if(!loggedin())
 //  {
