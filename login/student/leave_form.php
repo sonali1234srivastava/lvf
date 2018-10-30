@@ -1,13 +1,13 @@
 <?php
 
-// include '../../core_session.php';
-// include '../../header.php';
-// include '../../connect_db.php';
+include '../../core_session.php';
+include '../../header.php';
+include '../../connect_db.php';
 
-// if(!loggedin())
-//  {
-//       header('Location: ../index.php');
-//  }    
+if(!loggedin())
+ {
+      header('Location: ../index.php');
+ }    
 ?>
 <html>
 <head>
@@ -30,32 +30,6 @@
 </head>
 <body>
 
-
- <!--<?php 
-
- /*if(!loggedin())
- {
-      header('Location: student_login_form.php');
-
-  }*/    
-
-      //GIVE THE LEAVE FORM HERE..... 
- 
-   /*echo 'You\'r successfully logged in.<br><br>';
-
-   $uf = getfield('firstname');
-   $us = getfield('surname');
-   echo  'Welcome <i><b>'.$uf.' '.$us.'</b></i> !! <br>';
-   echo  'Email : <img src="generate.php"><br>';
-   echo  'We have a lot new for you to explore!!!';
-
-    echo '<br><br><br>';
-
-   echo '<a href="logout.php"><input type="submit" value="LOG OUT"></a>';*/
-?>-->
-
-
-
 <script>
   
 $(function(){
@@ -67,14 +41,6 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   $.validator.addMethod( "course", function( value, element ) {
   return this.optional( element ) || /^[a-z- ]+$/i.test( value );
     }, "Letters only please !" );
- /* $.validator.addMethod( "invalid_characters", function( value, element ) {
-  return this.optional( element ) || /^[^&<>'"]+$/i.test( value );
-    }, "Single quotes Double quotes & < > Not Allowed !" );
-    
-
-  $.validator.addMethod( "email_2", function( value, element ) {
-  return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/i.test( value );
-    }, "Not a valid Email" );*/
 
   $.validator.addMethod( "numbersonly", function( value, element ) {
   return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
@@ -87,17 +53,6 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   $.validator.addMethod( "leave", function( value, element ) {
   return this.optional( element ) || /^[0-9]+$/i.test( value );
     }, "Valid days count only please !" );
-  
- /* $.validator.addMethod( "date", function( value, element ) {
-  return this.optional( element ) || /^[0-9/: ]+$/i.test( value );
-    }, "Valid date only please !" );
-  /*$.validator.addMethod( "password", function( value, element ) {
-  return this.optional( element ) || /^[a-z0-9$_@# ]+$/i.test( value ) && value.length>=7;
-    }, "Letters Numbers $ _ @ # only please and should atleast consist of seven characters." );
-
-  $.validator.addMethod( "year", function( value, element ) {
-  return this.optional( element ) || /^[1-4]+$/i.test( value );
-    }, "Numbers only please !" );*/
 
   $.validator.addMethod( "student_number", function( value, element ) {
   return this.optional( element ) || /^[0-9a-z]+$/i.test( value ) && value.length==7;
@@ -149,11 +104,6 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
                        required: true,
                        numbersonly: true
                },
-               /*email: {
-                required: true,
-                email: true,
-                email_2:true
-              },*/
               student_number:{
                        required: true,
                        student_number: true
@@ -166,22 +116,6 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
                        required: true,
                        semester: true
                },
-              /*year:{
-                       required: true,
-                       year: true
-               },
-               username:{
-                       required: true,
-                       username: true
-               },
-               password:{
-                       required: true,
-                       password: true
-               },
-               password_again:{
-                       required: true,
-                       password: true
-               },*/
                hostel_name:{
                        required: true,
                        hostel_name: true
@@ -321,14 +255,8 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 </div></br>
 <div class = "row">
 <label class="control-label col-sm-2">11. Date :</label>
-<div class="form-group"><div class="col-sm-4"><input type="text" name="date" id="date" class="form-control" placeholder="YYYY/MM/DD" ><!--<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>--></div></div>
+<div class="form-group"><div class="col-sm-4"><input type="text" name="date" id="date" class="form-control" placeholder="YYYY/MM/DD" ></div></div>
 </div></br>
-<!--<div class="form-group col-xs-12 col-md-8">
-<input type="text" name="father_name" id="father_name" class="form-control" placeholder = "FATHER_NAME"></div></br>
-<div class="form-group col-xs-12 col-md-8">
-<input type="text" name="father_number" id="father_number" class="form-control" placeholder = "FATHER_NUMBER"></div></br>-->
-
-<!-- CAPCHA TO APPEAR HERE-->
 <div class = "row">
 <div id="alert_message"></div>
 </div></br></br>
@@ -373,16 +301,6 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 
  $(document).ready(function(){
    
-      /*var date_input=$('input[name="date"]'); //our date input has the name "date"
-      //var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);*/
-
    $('#action').val("SUBMIT");
    $('#action').attr("disabled",false);
    $(document).on('submit', '#leave_form_id' , function(event){
@@ -458,15 +376,3 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 </script>  
 
 </html>
-
-
-
-<!--<?
- }/*else{
-       echo 'Please Log In<br>';
-        window.location.href: "student_login_form";  //this line is not working well ab
-        //include 'loginform.php';
- }*/
-
- ?>
-</html>-->
