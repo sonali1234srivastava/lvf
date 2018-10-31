@@ -51,7 +51,7 @@
 	</div>
 	<div style=" float:left; display:inline; width:60%; height:80%; " >
 		<h1 style="margin: 50px 0 5px 0;"><i>AKGEC GIRLS' HOSTLE </i></h1></br></br>
-		<!--<h1><i>REGISTRATION</i></h1>-->
+		
 	</div>
 </div>
 
