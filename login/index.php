@@ -1,7 +1,7 @@
 <html>
 <head>
       <title>LVF Digitalisation</title>
-	  <link rel="shortcut icon" href="additional/favicon.png">
+	  <link rel="shortcut icon" href="../additional/favicon.png">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
