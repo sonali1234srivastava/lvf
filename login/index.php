@@ -1,146 +1,177 @@
 <html>
 <head>
-	<title>LVF Digitalisation</title>
- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <title>LVF Digitalisation</title>
+	  <link rel="shortcut icon" href="additional/favicon.png">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
 
-  <link rel="shortcut icon" type="image/png" href="../additional/favicon.png">
+body{
+	
+	margin:0;
+	padding:0;
+	width : 100%;
+	height : 100vh;
+	
+	background : linear-gradient(
+	    rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)
+		),url(../additional/bg.jpg) 50% 50% no-repeat;
+	background-size: cover;
+	display:table;
+	 
+}
 
-<style type="text/css">
-		
-		img.image{
+.container{
+	margin-top: 5%;
+	
+   }
 
-			      border: 2px solid red;
-			      padding-left: 150px;
-			      padding-top: 10px;
+.first{
+	color:white;
+	font-size:2.5vw;
+	margin-bottom:0;
+	text-align:center;
+	text-transform : uppercase;
+	letter-spacing:3px;
+	font-family:Courier;
+	
+}
+.first_small{
+	color:white;
+	font-size:6vw;
+	margin-bottom:0;
+	text-align:center;
+	text-transform : uppercase;
+	letter-spacing:3px;
+	font-family:Courier;
+	
+}
+.second{
+	color:white;
+	font-size : 2.2vw;
+	font-weight:550;
+	margin-bottom:0;
+	text-align:center;
+	text-transform : uppercase;
+	letter-spacing:3px;
+	font-family:"Courier New", Courier, monospace;
+	
+}
 
-		}
+.second_small{
+	color:white;
+	font-size : 4.4vw;
+	font-weight:650;
+	margin-bottom:0;
+	text-align:center;
+	text-transform : uppercase;
+	letter-spacing:1px;
+	font-family:"Courier New", Courier, monospace;
+	
+}
 
-		div.register{ 
-                     padding-left: 5px;
-                     border: 2px solid black;
-                     text-align: center;
-                     width: 100%;
-                     height: 10%;
-                     
-                     
+.third{
+	color:white;
+	font-weight:550;
+	letter-spacing:5px;
+	font-size:2.5vw;
+	text-align:center;
+	text-transform : uppercase;
+	font-family:"Courier New", Courier, monospace;
+}
 
-		}
-		a.button{ background-color: green ;
-                     color: white ;
-                     text-decoration: none;
-                     padding: 15px;
-                     border: 2px solid green;
-                     cursor: initial;
-		     }
-
-	</style>
-
+.third_small{
+	color:white;
+	font-weight:650;
+	letter-spacing:5px;
+	font-size:5.5vw;
+	text-align:center;
+	text-transform : uppercase;
+	font-family:"Courier New", Courier, monospace;
+}
+.fourth{
+	color:white;
+	font-weight:550;
+	letter-spacing:7px;
+	font-size:4vw;
+	text-align:center;
+	margin-top:10px;
+	text-transform : uppercase;
+	font-family:"times new roman";
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 50;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 35px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+.chip_small {
+    display: inline-block;
+    padding: 0 10px;
+    height: 25px;
+    font-size: 10px;
+    line-height: 25px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+</style>
 </head>
 
 <body>
+<main>
+<div class = "hidden-xs hidden-sm hidden-md ">
+<br><div class="pull-right chip ">
+<a href = "contact.php"><b>Contact us</b></a>
+</div><br><br>
+</div>
+<div class = "hidden-lg">
+<br><div class="pull-right chip_small ">
+<a href = "contact.php"><b>Contact us</b></a>
+</div><br><br>
+</div>
+<div class = "container">
+<div id="" class = "hidden-xs hidden-sm first">Welcome<br>To</div><br>
+<div id="" class = "hidden-md hidden-lg first_small">Welcome<br>To<br></div>
 
-<div class="container-float">
+<div id="" class = "hidden-xs hidden-sm third">Leave Form Digitalisation</div>
+<div id="" class = "hidden-md hidden-lg third_small"><br>Leave Form Digitalisation</div>
 
-<div class = container1 style="width: 100%; height: 15%; border: 2px solid black;">
-	<div style=" float:left; display:inline; width:40%; height:100%  ">
-		<img src="../logocsi.png" width="50%" height="100%" class="image">
-	</div>
-	<div style=" float:left; display:inline; width:60%; height:80%; " >
-		<h1 style="margin: 50px 0 5px 0;"><i>AKGEC GIRLS' HOSTLE </i></h1></br></br>
-		<!--<h1><i>REGISTRATION</i></h1>-->
-	</div>
+<div id = "" class= "hidden-xs hidden-sm first">
+<br>
+<a href = "./student/student_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM STUDENT</span></button>  </a>
+<a href = "./warden/warden_login_form.php"><button type="button" class="btn btn-primary"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM WARDEN</span></button>  </a>
 </div>
 
-<div class="container-float">	
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-
-      <div class="item active">
-        <img src="../pic.jpg" alt="Los Angeles" style="width:100%; height:50%;">
-        <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="../pic1.jpg" alt="Chicago" style="width:100%; height:50%;">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="../pic2.jpg" alt="New York" style="width:100%; height:50%;">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
-      </div>
-  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+<div id = "" class= "hidden-md hidden-lg first_small">
+<br><br><br>
+<a href = "./student/student_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM STUDENT</span></button>  </a>
+<a href = "./warden/warden_login_form.php"><button type="button" class="btn btn-primary"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM WARDEN</span></button>  </a>  
+</div>
 </div>
 
+</main>
 
 
 
-<div class = outer_container>
-
-<!-- <div class = container1 style="width: 100%; height: 20%; border: 2px solid black;">
-	<div style=" float:left; display:inline; width:40%; height:100%  ">
-		<img src="../logocsi.png" width="70%" height="100%" class="image">
-	</div>
-	<div style=" float:left; display:inline; width:60%; height:100%; " >
-		<h1 style="margin: 50px 0 5px 0;"><i>AKGEC GIRLS' HOSTLE </i></h1></br></br>
-		--><!--<h1><i>REGISTRATION</i></h1>-->
-	<!--</div>
- </div>-->
-
-
- <div class = "register" >
-	<h1><i><b>LOG IN</b></i></h1>
- </div>
-
-   
-   </br></br></br></br>
-
- <div class="container2" style="width: 100%; height: 10%;">
-   <div style=" float:left; display:inline; text-align: center; width:50%; height:100%  ">
-     <a href="./student/student_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I'M STUDENT</span></button></a>	
-   </div>
-   <div style=" float:left; display:inline; text-align: center; width:50%; height:100%; ">
-     <a href="./warden/warden_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I'M WARDEN</span></button></a>	
-   </div>
- </div>
-
-</div>
-
-</div>
-
+<footer>
+<div id="" class = "footer hidden-xs hidden-sm second"><span style = "font-size : 1.5vw;">Powered By</span> Team CSI</div>
+<div id="" class = "footer hidden-md hidden-lg second_small"><span style = "font-size : 3vw;">Powered By</span> Team CSI</div>
+</footer>
 
 </body>
 </html>

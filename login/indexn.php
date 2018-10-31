@@ -19,7 +19,7 @@ body{
 	background : linear-gradient(
 	    rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.8)
-		),url(../additional/bg.jpg) 50% 50% no-repeat;
+		),url(additional/bg.jpg) 50% 50% no-repeat;
 	background-size: cover;
 	display:table;
 	 
@@ -153,14 +153,14 @@ body{
 
 <div id = "" class= "hidden-xs hidden-sm first">
 <br>
-<a href = "./student/index.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM STUDENT</span></button>  </a>
-<a href = "./warden/index.php"><button type="button" class="btn btn-primary"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM WARDEN</span></button>  </a>
+<a href = "./student/student_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM STUDENT</span></button>  </a>
+<a href = "./warden/warden_login_form.php"><button type="button" class="btn btn-primary"><span style="font-size:3.5vh;font-weight:550;letter-spacing:2px;">I AM WARDEN</span></button>  </a>
 </div>
 
 <div id = "" class= "hidden-md hidden-lg first_small">
 <br><br><br>
-<a href = "./student/index.php"><button type="button" class="btn btn-success"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM STUDENT</span></button>  </a>
-<a href = "./warden/index.php"><button type="button" class="btn btn-primary"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM WARDEN</span></button>  </a>  
+<a href = "./student/student_login_form.php"><button type="button" class="btn btn-success"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM HOD</span></button>  </a>
+<a href = "./warden/warden_login_form.php"><button type="button" class="btn btn-primary"><span style="font-size:2.2vh;font-weight:650;letter-spacing:2px;">I AM FACULTY</span></button>  </a>  
 </div>
 </div>
 
