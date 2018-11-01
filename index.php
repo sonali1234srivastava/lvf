@@ -11,6 +11,9 @@
     <title>LVF Digitalisation</title>
 
     <link rel="shortcut icon" type="image/png" href="additional/favicon.png">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,6 +23,18 @@
 
     <!-- Custom styles for this template -->
     <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+     <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script type="text/javascript" src="vendor/greensock-js/EaselPlugin.min.js"></script>
+    <script type="text/javascript" src="vendor/greensock-js/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="vendor/greensock-js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="vendor/animate-scroll-master/animate-scroll.js"></script>
+
+    <script type="text/javascript"> $(document).animateScroll(); </script>
 
     <style type="text/css">
         
@@ -56,7 +71,8 @@
     </nav>
 
     <header class="masthead text-center text-white">
-      <div class="masthead-content">
+
+    <div class="masthead-content">
         <div class="container"  data-animate-scroll='{"rotationY":"-15", "alpha": "0", "duration": "1","scaleX": "0","scaleY": "0"}' >
           <h3 class="masthead-heading mb-0 serif">Welcome To</h3>
           <h2 class="masthead-subheading mb-0 serif">LVF  DIGITALISATION</h2>
@@ -67,6 +83,59 @@
       <div class="bg-circle-3 bg-circle"></div>
       <div class="bg-circle-4 bg-circle"></div>
     </header>
+      
+      <!--<div class="container-float">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+    <!-- Indicators -->
+   <!-- <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>-->
+
+    <!-- Wrapper for slides -->
+    <!--<div class="carousel-inner">
+
+      <div class="item active">
+        <img src="../pic.jpg" alt="Los Angeles" style="width:100%; height:50%;">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="../pic1.jpg" alt="Chicago" style="width:100%; height:50%;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="../pic2.jpg" alt="New York" style="width:100%; height:50%;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div>
+  
+    </div>-->
+
+    <!-- Left and right controls -->
+   <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>-->
+
+
+      
 
     <section>
       <div class="container">
