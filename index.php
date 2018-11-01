@@ -47,7 +47,7 @@
 
   <body>
 
-    <!-- Navigation  data-animate-scroll='{"scaleX": "2","scaleY": "2", "alpha": "0", "duration": ".5"}' -->
+    <!-- Navigation  data-animate-scroll='{"rotationY":"-15", "alpha": "0", "duration": "1","scaleX": "0","scaleY": "0"}' -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
         <a class="navbar-brand serif" href="#">LVF Digitalisation</a>
@@ -72,8 +72,8 @@
 
     <header class="masthead text-center text-white">
 
-    <div class="masthead-content">
-        <div class="container"  data-animate-scroll='{"rotationY":"-15", "alpha": "0", "duration": "1","scaleX": "0","scaleY": "0"}' >
+    <div class="masthead-content" data-animate-scroll='{"rotationX":"15", "alpha": "0", "duration": "1","scaleX": "1.2"}'>
+        <div class="container">
           <h3 class="masthead-heading mb-0 serif">Welcome To</h3>
           <h2 class="masthead-subheading mb-0 serif">LVF  DIGITALISATION</h2>
         </div>
@@ -84,7 +84,7 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
       
-      <!--<div class="container-float">
+      <!--<div class="container-float" data-animate-scroll='{"rotationY":"-15", "alpha": "0", "duration": "1","scaleX": "0","scaleY": "0"}'> >
       <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
     <!-- Indicators -->
    <!-- <ol class="carousel-indicators">
@@ -132,7 +132,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>-->
+</div> data-animate-scroll='{"scaleX": "2","scaleY": "2", "alpha": "0", "duration": ".5"}' -->
 
 
       
@@ -142,7 +142,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 order-lg-2">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="pic.jpg" alt="">
+              <img class="img-fluid rounded-circle" src="pic.jpg" alt="GH1" data-animate-scroll='{"scaleX": "2","scaleY": "2","rotation": "360", "alpha": "0", "duration": "1"}'>
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
