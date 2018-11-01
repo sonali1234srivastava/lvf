@@ -1,0 +1,1 @@
+web: vendor greensock-js EaselPlugin.min.js & vendor greensock-js ScrollToPlugin.min.js & vendor greensock-js TweenMax.min.js & vendor animate-scroll-master animate-scroll.js & vendor jquery jquery.min.js & vendor bootstrap js bootstrap.bundle.min.js
