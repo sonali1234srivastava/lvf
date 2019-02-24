@@ -1,11 +1,14 @@
 <?php
+ob_start();
+session_start();
+
 include '../../connect_db.php';
 include '../../header.php';
-include '../../core_session.php';
 
-if(loggedin())
-{
-   header("Location: index.php");
+
+if(isset($_SESSION["warden_id"]) && !empty($_SESSION["warden_id"]))
+{  
+  header('Location: index.php');
 }
 ?>
 

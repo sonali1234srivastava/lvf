@@ -17,7 +17,7 @@ if(isset($_SESSION["warden_id"])&& !empty($_SESSION["warden_id"]))
     else{die("Error description: " . mysqli_error($conn));}  
    }
    //die($n);
-
+     $v = 1 ;
 $columns = array('id','name','number','email','course','branch','year','username', 'hostel_name','room_number','home_address', 'father_name','father_number','verify');
 
 //$query = "SELECT * FROM hod_".$hod_department."_".$hod_username."";     OR verify LIKE "%'.test_input($_POST["search"]["value"]).'%"
@@ -43,7 +43,7 @@ if(isset($_POST["search"]["value"]))
  ;
 }
     //die($n);  `$n`
-$query = $query.") AND hostel_name ='$n'";
+$query = $query.") AND (hostel_name ='$n' AND is_email_confirmed = '$v')";
 
 
 

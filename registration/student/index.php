@@ -36,7 +36,7 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
     }, "Letters only please !" );
 
 $.validator.addMethod( "course", function( value, element ) {
-  return this.optional( element ) || /^[a-z- ]+$/i.test( value );
+  return this.optional( element ) || /^[a-z-/ ]+$/i.test( value );
     }, "Letters only please !" );
   
  /* $.validator.addMethod( "invalid_characters", function( value, element ) {
@@ -52,12 +52,8 @@ $.validator.addMethod( "course", function( value, element ) {
   return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
     }, "Valid number only please !" );
 
-  $.validator.addMethod( "hostel_name", function( value, element ) {
-  return this.optional( element ) || /^[1-3]+$/i.test( value );
-    }, "Valid hostle name only please !" );
-
   $.validator.addMethod( "room_number", function( value, element ) {
-  return this.optional( element ) || /^[0-9]+$/i.test( value );
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==3 ;
     }, "Valid room number only please !" );
   
   $.validator.addMethod( "password", function( value, element ) {
@@ -65,7 +61,7 @@ $.validator.addMethod( "course", function( value, element ) {
     }, "Letters Numbers $ @ # only please and should atleast consist of seven characters." );
 
   $.validator.addMethod( "year", function( value, element ) {
-  return this.optional( element ) || /^[1-4]+$/i.test( value );
+  return this.optional( element ) || /^[1-4]+$/i.test( value ) && value.length==1;
     }, "Valid year number only please !" );
 
   $.validator.addMethod( "username", function( value, element ) {
@@ -73,7 +69,7 @@ $.validator.addMethod( "course", function( value, element ) {
     }, "Valid University Roll Number only please !" );
 
   $.validator.addMethod( "address", function( value, element ) {
-  return this.optional( element ) || /^[a-z0-9, ]+$/i.test( value );
+  return this.optional( element ) || /^[a-z0-9,.\/()\- ]+$/i.test( value );
     }, "Valid address only please !" );
 
    $.validator.setDefaults({
@@ -117,7 +113,7 @@ $.validator.addMethod( "course", function( value, element ) {
                },
                branch:{
                        required: true,
-                       lettersonly: true
+                       course: true
                },
               year:{
                        required: true,
@@ -137,7 +133,7 @@ $.validator.addMethod( "course", function( value, element ) {
                },
                hostel_name:{
                        required: true,
-                       hostel_name: true
+                       
                },
                room_number:{
                        required: true,
@@ -171,8 +167,9 @@ $.validator.addMethod( "course", function( value, element ) {
 <body>
      <div class = "container">
   <div class="well well-lg col-md-8 col-md-offset-2"> 
+  <a href="../../index.php" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-home"></span></a>
   <center><h3><img src = "../../additional/favicon.png" height = "6%" width = "6%" id="animate1"><span ><b>STUDENT REGISTRATION</b></span></h3></center>
-   </br>
+  </br>
 
 	<!--<div class = "container">
   <center><h2>STUDENT REGISTRATION</h2></center></br>-->
@@ -201,25 +198,47 @@ $.validator.addMethod( "course", function( value, element ) {
   <label class="control-label col-sm-2" for="course">COURSE :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="course" id="course" class="form-control" placeholder = "COURSE"></div></div>
+                 <select name="course" id="course" class="form-control">
+                    <option value="B-Tech"><b>B-Tech</b></option>
+                    <option value="M-Tech"><b>M-Tech</b></option>
+                    <option value="BCA"><b>BCA</b></option>  
+                    <option value="MCA"><b>MCA</b></option>
+                    <option value="MBA"><b>MBA</b></option>                
+                 </select>
+</div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="branch">BRANCH :</label>
-<div class="form-group">
-  <div class="col-sm-8">
-<input type="text" name="branch" id="branch" class="form-control" placeholder = "BRANCH"></div></div>
+  <div class="form-group">
+     <div class="col-sm-8">
+         <select name="branch" id="branch" class="form-control">
+                        <option value="none"><b>None</b></option>
+                        <option value="CSE"><b>CSE</b></option>
+                        <option value="IT"><b>IT</b></option>
+                        <option value="ECE"><b>ECE</b></option>
+                        <option value="EN/EI"><b>EN/EI</b></option>
+                        <option value="CE"><b>CE</b></option>
+                        <option value="ME"><b>ME</b></option>
+         </select>
+    </div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="year">YEAR :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="year" id="year" class="form-control" placeholder = "YEAR"></div></div>
+            <select name="year" id="year" class="form-control">
+                        <option value="1"><b>First</b></option>
+                        <option value="2"><b>Second</b></option>
+                        <option value="3"><b>Third</b></option>
+                        <option value="4"><b>Fourth</b></option>
+            </select>
+  </div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="username">USERNAME :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="username" id="username" class="form-control" placeholder = "UNIVERSITY_ROLL_NUMBER"></div></div>
+<input type="text" name="username" id="username" class="form-control" placeholder = "UNIVERSITY ROLL NUMBER"></div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="password">PASSWORD :</label>
@@ -231,7 +250,7 @@ $.validator.addMethod( "course", function( value, element ) {
   <label class="control-label col-sm-2" for="password_again">PASSWORD AGAIN :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="password" name="password_again" id="password_again" class="form-control" placeholder = "PASSWORD_AGAIN"></div></div>
+<input type="password" name="password_again" id="password_again" class="form-control" placeholder = "PASSWORD AGAIN"></div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="hostel_name">HOSTEL NAME :</label>
@@ -248,25 +267,25 @@ $.validator.addMethod( "course", function( value, element ) {
    <label class="control-label col-sm-2" for="room_number">ROOM NUMBER :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="room_number" id="room_number" class="form-control" placeholder = "ROOM_NUMBER"></div></div>
+<input type="text" name="room_number" id="room_number" class="form-control" placeholder = "ROOM NUMBER"></div></div>
 </div></br>
 <div class = "row">
   <label class="control-label col-sm-2" for="home_address">HOME ADDRESS :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="home_address" id="home_address" class="form-control" placeholder = "HOME_ADDRESS"></div></div>
+<input type="text" name="home_address" id="home_address" class="form-control" placeholder = "HOME ADDRESS"></div></div>
 </div></br>
 <div class = "row">
-  <label class="control-label col-sm-2" for="father_name">FATHER NAME :</label>
+  <label class="control-label col-sm-2" for="father_name">FATHER'S NAME :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="father_name" id="father_name" class="form-control" placeholder = "FATHER_NAME"></div></div>
+<input type="text" name="father_name" id="father_name" class="form-control" placeholder = "FATHER NAME"></div></div>
 </div></br>
 <div class = "row">
-  <label class="control-label col-sm-2" for="father_number">FATHER NUMBER :</label>
+  <label class="control-label col-sm-2" for="father_number">FATHER'S MOBILE NUMBER :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="father_number" id="father_number" class="form-control" placeholder = "FATHER_NUMBER"></div></div>
+<input type="text" name="father_number" id="father_number" class="form-control" placeholder = "FATHER NUMBER"></div></div>
 </div></br>
 <div class = "row">
 <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8">
@@ -325,12 +344,12 @@ $.validator.addMethod( "course", function( value, element ) {
      },
 
      success:function(data) {
-     $('#action').val("Sent");
-     $('#action').attr("disabled",true);
-
-     if(data == 100)
+     
+    if(data == 100)
      { 
-        
+        $('#action').val("Sent");
+        $('#action').attr("disabled",true);
+
       $('#alert_message').html('<span class="text-success"><b>Before being Registered, Please VERIFY Your Email Detail !!</b></span>');
        setTimeout('$("#alert_message").html("")',4000);
       //header('Location: registered.php');
@@ -340,9 +359,11 @@ $.validator.addMethod( "course", function( value, element ) {
          //this redirect line is not
      }
      else{
-       //$('#alert_message').html(data);
+       
+       $('#action').val("Send");
        $('#alert_message').html('<span class="text-danger"><b>'+data+'</b></span>');
        setTimeout('$("#alert_message").html("")',3500);
+       
      }
      
      /*$('#alert_message').html(data);

@@ -29,7 +29,7 @@ if(isset($_POST["username_email"])){
 					$email_subject = "Password Reset Link for LVF";
                     $email_body = "
                     Click on the link below to reset your password!!<br><br>
-                    <center><a href = 'http://localhost/leave_form/login/warden/warden_reset_password.php?token=$str&email=$warden_email'>Click Here</a></center>
+                    <center><a href = 'http://13.232.76.179/leave_form/login/warden/warden_reset_password.php?token=$str&email=$warden_email'>Click Here</a></center>
                     ";
 
                     $mail->Subject = $email_subject;

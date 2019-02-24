@@ -2,7 +2,7 @@
 include '../../core_session.php';
 include "../../connect_db.php";
 include '../../validate_input.php';
-  
+include '../../email_configuration.php';   
   //session_start();
   // echo "hello";
  if (isset($_POST["change_password_operation"]))
@@ -61,14 +61,35 @@ include '../../validate_input.php';
 	 // Logic of Change Password Begin
 	 if($check==1 && $warden_new_change_password==$warden_confirm_change_password){
 		 
-		  $query = "SELECT * FROM warden_detail WHERE id = ? AND password = ?";  
+		  $query = "SELECT name,email FROM warden_detail WHERE id = ? AND password = ?";  
 				$query_prepare_statement = mysqli_prepare($conn, $query);
 		        mysqli_stmt_bind_param($query_prepare_statement, "is", $warden_id, $warden_old_change_password); 
 				if ( mysqli_stmt_execute($query_prepare_statement)) {  
 				
 				  mysqli_stmt_store_result($query_prepare_statement);
+
+          /* bind result variables */
+                  mysqli_stmt_bind_result($query_prepare_statement, $warden_name, $warden_email);  //two step security
+
+                   /* fetch value */
+                  mysqli_stmt_fetch($query_prepare_statement);
+
 				  $count = mysqli_stmt_num_rows($query_prepare_statement); 
                 if($count > 0)  {
+
+               $email_subject = "LVF Digitalisation Security";
+                    $email_body = "
+                    <b>".$warden_name."</b> your password was successfully reset<br>
+                    Hope that you have reset your password.<br>
+                    Hi <b>".$warden_name."</b>,<br>
+                    You have successfully changed your LVF password.<br>
+                    Thanks for using LVF Digitalisation!!<br>
+                    Regards Team CSI
+                  ";
+
+                    $mail->Subject = $email_subject;
+                    $mail->Body    = $email_body;
+                    $mail->addBCC($warden_email);     
 					
 					     $query = "UPDATE warden_detail
                         SET  password = ? , password_again = ?
@@ -76,7 +97,14 @@ include '../../validate_input.php';
                         $query_prepare_statement = mysqli_prepare($conn, $query);
 		                mysqli_stmt_bind_param($query_prepare_statement, "ss", $warden_new_change_password, $warden_confirm_change_password);
                         if (mysqli_stmt_execute($query_prepare_statement)){
-							echo '<div class="alert alert-success">Password Changed!!</div>';
+
+							               if($mail->send()){
+                                 echo '<div class="alert alert-success">Password has been Changed!!</div>';
+                             }
+                             else{
+                               echo '<div class="alert alert-success">Your password has been Changed but due to some network problem you could not receive the Security mail.<br> Hope that you yourself have changed the password. </div>';
+                             }    
+
 		                }
 		                else{
 							echo '<div class="alert alert-danger">' . mysqli_error($conn) . '</div>';

@@ -1,6 +1,6 @@
 <html>
 <head>
-      <title>DTM</title>
+      <title>LVF</title>
 	  <link rel="shortcut icon" href="favicon.png">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@ body{
 	background : linear-gradient(
 	    rgba(0, 0, 0, 0.75),
         rgba(0, 0, 0, 0.75)
-		),url(pic.jpeg) 50% 50% no-repeat;
+		),url(mine.jpg) 50% 50% no-repeat;
 	background-size: cover;
 	display:table;
 	 
@@ -119,7 +119,7 @@ p{
 <div class = "container hidden-xs hidden-sm">
 <div id="" class = "hidden-xs hidden-sm first">Designed and Coded by</div><br>
 
-<p class = "hidden-xs hidden-sm">Shivam Jain</p>
+<p class = "hidden-xs hidden-sm">Sonali Srivastava</p>
 
 <p class = "hidden-xs hidden-sm" style = "
 letter-spacing:5px;
@@ -130,7 +130,7 @@ font-weight:300;
 
 <div class = "container_small hidden-md hidden-lg">
 <div id="" class = "hidden-md hidden-lg first_small">Designed and Coded by<br></div>
-<div class = "hidden-md hidden-lg shivam_jain" id = ""><br>Shivam Jain</div>
+<div class = "hidden-md hidden-lg shivam_jain" id = ""><br>Sonali Srivastava</div>
 <div class = "hidden-md hidden-lg shivam_jain" id = "" style = "
 letter-spacing:5px;
 font-weight:300;

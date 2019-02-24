@@ -1,6 +1,6 @@
 <?php
-include '../../db.php';
-include '../../email_config.php';
+include '../../connect_db.php';
+include '../../email_configuration.php';
 
 function test_input($data)
  {
@@ -52,9 +52,9 @@ function test_input($data)
 	 
 	 
 	if ($check == 1){
-		$email_subject = "DTM Message";
+		$email_subject = "LVF Digitalisation Message";
 		$email_body = "
-<h4>You have received a new message from DTM<br> <br></h4>
+<h4>You have received a new message from LVF<br> <br></h4>
 <b>Name : </b>".$name." <br>
 <b>Email : </b>".$email." <br>
 <b>Message : </b>".$message." <br>
@@ -64,7 +64,7 @@ $mail->Subject = $email_subject;
 $mail->Body    = $email_body;
 $mail->addBCC("csi@outlook.in");
 	$query = "INSERT INTO feedback(name, email, message) VALUES(?,?,?)";
-		$query_prepare_statement = mysqli_prepare($connect, $query);
+		$query_prepare_statement = mysqli_prepare($conn, $query);
 		mysqli_stmt_bind_param($query_prepare_statement, "sss", $name, $email, $message);
         if ( mysqli_stmt_execute($query_prepare_statement)){
 			if($mail->send()){
@@ -76,5 +76,5 @@ $mail->addBCC("csi@outlook.in");
 			echo '<div class="alert alert-danger">Something went wrong, kindly contact Team CSI.</div><br>';
 		}		
 	}
- mysqli_close($connect);
+ mysqli_close($conn);
 ?>

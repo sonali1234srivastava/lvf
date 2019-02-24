@@ -104,7 +104,7 @@ function test_input($data)
       {
          $check = 1;
       }
-    if(!preg_match("/^[a-zA-Z ]+$/", $branch))
+    if(!preg_match("/^[a-zA-Z\/ ]+$/", $branch))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only letters in the branch.</div>';
@@ -112,10 +112,10 @@ function test_input($data)
       {
          $check = 1;
       }  
-     if(!preg_match("/^[1-4]+$/", $year))
+     if(!preg_match("/^[1-4]+$/", $year) || strlen($year)!=1)
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters or numbers only.</div>';
+        echo '<div class = "alert alert-danger">valid year number only.</div>';
     }  else
       {
          $check = 1;
@@ -153,7 +153,7 @@ function test_input($data)
     if(!preg_match("/^[1-3]+$/", $hostel_name))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">Invalid hostle name format.</div>';
+        echo '<div class = "alert alert-danger">Invalid hostel name format.</div>';
     }  else
       {
          $check = 1;
@@ -168,7 +168,7 @@ function test_input($data)
       $check = 1;
 
     }
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $home_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $home_address))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
@@ -202,7 +202,7 @@ function test_input($data)
  
     if($password == $password_again)
      {
-
+     
       $get_student_username_query = "SELECT username FROM student_detail WHERE username = ? ";
       $query_prepare_statement = mysqli_prepare($conn,$get_student_username_query);
       mysqli_stmt_bind_param($query_prepare_statement, "i", $username);
@@ -233,7 +233,7 @@ function test_input($data)
          //$mail->isHTML(true);
          $mail->Body = "
                 Please click on the link below :<br/><br/>
-             <center><a href = 'http://localhost/leave_form/registration/student/confirm.php?email=$email&token=$token'>Click Here</a></center>
+             <center><a href = 'http://13.232.76.179/leave_form/registration/student/confirm.php?email=$email&token=$token'>Click Here</a></center>
          ";
         $mail->addBCC($email);
          if($mail->send())
@@ -252,7 +252,7 @@ function test_input($data)
       }
       else
       {
-        echo 'Username '.$username.' already exists!';
+        echo 'Username '.$username.' or Email '.$email.' already exists!';
       }
 
      }

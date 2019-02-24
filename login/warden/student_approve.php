@@ -18,7 +18,7 @@ if(isset($_POST["student_id"]))
    $email_subject = "Warden response for ".$student_name."";
 $email_body = "
               Warden cordially welcomes you to AKGEC Girls' Hostel <b>GH".$hostel_name."</b> in room number <b>".$room_number."</b> for the upcoming year, hope you enjoy your stay!!<br>
-             For sending any hostel leave request in future, kindly <a href = 'http://localhost/leave_form/login/index.php'>LOGIN</a> and send the request!!" ;
+             For sending any hostel leave request in future, kindly <a href = 'http://13.232.76.179/leave_form/login/index.php'>LOG IN</a> and send the request!!" ;
 
 $mail->Subject = $email_subject;
 $mail->Body    = $email_body;

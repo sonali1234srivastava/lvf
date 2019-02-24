@@ -160,7 +160,8 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 
 <body>
 	<div class="container">
-    <div class="well well-lg col-md-8 col-md-offset-2"> 
+    <div class="well well-lg col-md-8 col-md-offset-2">
+    <a href="../../index.php" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-home"></span></a> 
       <center><h3><img src = "../../additional/favicon.png" height = "6%" width = "6%" id="animate1"><span ><b>WARDEN REGISTRATION</b></span></h3></center>
 </br>
   
@@ -193,7 +194,7 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   <label class="control-label col-sm-2" for="username">USERNAME :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="username" id="username" class="form-control" placeholder = "WARDEN_ID"></div></div>
+<input type="text" name="username" id="username" class="form-control" placeholder = "WARDEN ID"></div></div>
 </div></br>
 <div class="row">
   <label class="control-label col-sm-2" for="password">PASSWORD :</label>
@@ -205,7 +206,7 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   <label class="control-label col-sm-2" for="password">PASSWORD AGAIN :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="password" name="password_again" id="password_again" class="form-control" placeholder = "PASSWORD_AGAIN"></div></div>
+<input type="password" name="password_again" id="password_again" class="form-control" placeholder = "PASSWORD AGAIN"></div></div>
 </div></br>
 <div class="row">
   <label class="control-label col-sm-2" for="hostel_name">HOSTEL NAME :</label>
@@ -222,7 +223,7 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   <label class="control-label col-sm-2" for="home_address">HOME ADDRESS :</label>
 <div class="form-group">
   <div class="col-sm-8">
-<input type="text" name="home_address" id="home_address" class="form-control" placeholder = "HOME_ADDRESS"></div>
+<input type="text" name="home_address" id="home_address" class="form-control" placeholder = "HOME ADDRESS"></div>
 </div></div></br></br>
 <!--<div class="form-group col-xs-12 col-md-8">
 <input type="text" name="father_name" id="father_name" class="form-control" placeholder = "FATHER_NAME"></div></br>

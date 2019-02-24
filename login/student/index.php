@@ -30,7 +30,149 @@ if(!loggedin())
   background-attachment: fixed;
    background-size: cover;
 }
+
+   input[name="student_signature"] { font-size: 16px;  font-family: cursive; }
+
     </style>
+
+   <script>
+  
+$(function(){
+  
+$.validator.addMethod( "lettersonly", function( value, element ) {
+  return this.optional( element ) || /^[a-z ]+$/i.test( value );
+    }, "Letters only please !" );
+
+$.validator.addMethod( "course", function( value, element ) {
+  return this.optional( element ) || /^[a-z/ ]+$/i.test( value );
+    }, "Letters only please !" );
+  
+  $.validator.addMethod( "numbersonly", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
+    }, "Valid number only please !" );
+
+  $.validator.addMethod( "leaveno", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length<=2;
+    }, "Valid leave days count only please, maximum of 3 months !" );
+
+  $.validator.addMethod( "room_number", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==3 ;
+    }, "Valid room number only please !" );
+  
+  $.validator.addMethod( "semester", function( value, element ) {
+  return this.optional( element ) || /^[1-8]+$/i.test( value ) && value.length==1;
+    }, "Valid semester number only please !" );
+
+  $.validator.addMethod( "rollno", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
+    }, "Valid University Roll Number only please !" );
+
+  $.validator.addMethod( "studentno", function( value, element ) {
+  return this.optional( element ) || /^[0-9a-z]+$/i.test( value ) && value.length==7;
+    }, "Valid Student Number only please !" );
+
+  $.validator.addMethod( "address", function( value, element ) {
+  return this.optional( element ) || /^[a-z0-9,.\/()\- ]+$/i.test( value );
+    }, "Valid address only please !" );
+
+   $.validator.setDefaults({
+    errorClass: 'text-danger',
+  
+   highlight: function(element) {
+      $(element)
+        .closest('.form-group')
+        .addClass('has-error')
+    .removeClass('has-success');
+    },
+    unhighlight: function(element) {
+      $(element)
+        .closest('.form-group')
+        .removeClass('has-error')
+    .addClass('has-success');
+    },
+  
+    });
+
+
+  $("#leave_form_id").validate({
+
+      rules:{
+               name:{
+                       required: true,
+                       lettersonly: true
+               },
+               room_number:{
+                       required: true,
+                       room_number: true
+               },
+               roll_number:{
+                       required: true,
+                       rollno: true
+               },
+               student_number:{
+                       required: true,
+                       studentno: true
+               },
+               course:{
+                       required: true,
+               },
+               semester:{
+                       required: true,
+                       semester: true
+               },
+               hostel_name:{
+                       required: true,
+               },
+               leave_period:{
+               	       required: true,
+                       leaveno: true
+               },
+               days_from:{
+                       required: true,
+               },
+               days_to:{
+                       required: true,
+               },
+               reason:{
+                       required: true,
+                       lettersonly: true
+               },
+               visiting_person:{
+                       required: true,
+                       lettersonly: true
+               },
+               relation:{
+                       required: true,
+                       lettersonly: true
+               },
+               visiting_person_address:{
+                       required: true,
+                       address: true
+               },
+               applicant_number:{
+                       required: true,
+                       numbersonly: true
+               },
+               residence_address:{
+                       required: true,
+                       address: true
+               },
+               student_signature:{
+                       required: true,
+                       lettersonly: true
+               },
+               date:{
+                       required: true,
+               },
+               
+      }
+
+  }); 
+
+});
+
+</script>
+
 </head>
 <body>
 
@@ -78,7 +220,7 @@ if(!loggedin())
                </div>
  </br></br>  
 
-     <!--modal to add leave-->
+     <!--modal to edit leave-->
     <div id="myModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog lvf">
 
@@ -107,11 +249,29 @@ if(!loggedin())
 </div></br>
 <div class = "row">
 <label class="control-label col-sm-2">3. Course/Branch :</label>
-<div class="form-group"><div class="col-sm-2"><input type="text" name="course" id="course" class="form-control" required></div></div>
+<div class="form-group"><div class="col-sm-2">
+               <select name="course" id="course" class="form-control">
+                        <option value="CSE"><b>CSE</b></option>
+                        <option value="IT"><b>IT</b></option>
+                        <option value="ECE"><b>ECE</b></option>
+                        <option value="EN/EI"><b>EN/EI</b></option>
+                        <option value="CE"><b>CE</b></option>
+                        <option value="ME"><b>ME</b></option>
+                        <option value="BCA"><b>BCA</b></option>
+                        <option value="MCA"><b></b>MCA</option>
+                        <option value="MBA"><b>MBA</b></option>
+               </select>
+</div></div>
 <label class="control-label col-sm-2">Semester :</label>
 <div class="form-group"><div class="col-sm-2"><input type="text" name="semester" id="semester" class="form-control" required></div></div>
 <label class="control-label col-sm-2">Hostel Name :</label>
-<div class="form-group"><div class="col-sm-2"><input type="text" name="hostel_name" id="hostel_name" class="form-control" required></div></div>
+<div class="form-group"><div class="col-sm-2">
+                <select name="hostel_name" id="hostel_name" class="form-control">
+                        <option value="1"><b>GH1</b></option>
+                        <option value="2"><b>GH2</b></option>
+                        <option value="3"><b>GH3</b></option>
+                </select>
+</div></div>
 </div></br>
 <div class = "row">
 <label class="control-label col-sm-2">4. Period of Leave :</label>
@@ -137,7 +297,7 @@ if(!loggedin())
 </div></br>
 <!--<input type="text" name="visiting_person_address" id="visiting_person_address" class="form-control" style="row: 3; col:10; " ></div></div></br>-->
 <div class = "row">
-<label class="control-label col-sm-2">8. Applicant's Mobile No.(if any) :</label>
+<label class="control-label col-sm-2">8. Applicant's Mobile No. :</label>
 <div class="form-group"><div class="col-sm-4"><input type="text" name="applicant_number" id="applicant_number" class="form-control" required></div></div>
 </div></br>
 <div class = "row">
@@ -241,10 +401,31 @@ if(!loggedin())
  
  <script>
  $(document).on('click', '.pick', function(){ 
- $("#date").datetimepicker();
- $("#days_from").datetimepicker();
- $("#days_to").datetimepicker();
+ $("#date").datetimepicker({ minDate: new Date() });
+ /*$("#days_from").datetimepicker();
+ $("#days_to").datetimepicker();*/
+
+  $('#days_from').datetimepicker({
+                    format:'Y/m/d H:m',
+                    onShow:function( ct ){
+                     this.setOptions({
+                      maxDate:$('#days_to').val()?$('#days_to').val():false
+                     })
+                    },
+                    timepicker:true
+                 });
+                $('#days_to').datetimepicker({
+                  format:'Y/m/d H:m',
+                  onShow:function( ct ){
+                   this.setOptions({
+                    minDate:$('#days_from').val()?$('#days_from').val():false
+                                   })
+                  },
+                  timepicker:true
+                });
+
  });
+
 </script>
 
 <script src = "fetch_leave_detail.js"></script>

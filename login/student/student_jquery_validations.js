@@ -1,10 +1,13 @@
 $(function() {
 	
-		$.validator.addMethod( "pwd", function( value, element ) {
+		$.validator.addMethod( "password", function( value, element ) {
+  return this.optional( element ) || /^[a-z0-9$@# ]+$/i.test( value ) && value.length>=7;   // _ is not working
+    }, "Letters Numbers $ @ # only please and should atleast consist of seven characters." );
+
+		/*$.validator.addMethod( "pwd", function( value, element ) {
 	return this.optional( element ) 
-	|| value.length>=6;
-       }, "Password must be of at least 6 Characters" );
-	
+	|| value.length>=7;
+       }, "Password must be of at least 7 Characters" );*/
 	   
 	$.validator.addMethod( "invalid_characters", function( value, element ) {
 	return this.optional( element ) || /^[^&<>'"]+$/i.test( value );
@@ -33,12 +36,12 @@ $(function() {
 		rules:{
 			student_reset_password: {
 				required:true,
-				pwd:true,
+				password:true,
 				invalid_characters:true
 			},
 			student_confirm_reset_password: {
 				required:true,
-				pwd:true,
+				password:true,
 				equalTo:"#student_reset_password",
 				invalid_characters:true
 			  },

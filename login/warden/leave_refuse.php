@@ -20,7 +20,7 @@ if(isset($_POST["leave_id"]))
    $email_subject = "Warden response for ".$student_name."";
 $email_body = "
               Student <b>".$student_name."</b> , resident of hostel <b>GH".$hostel_name."</b> is being Denied of the leave for <b>".$leave_period."</b> day(s) from <b>".$day_from."</b> to <b>".$day_to."</b> on account of some Verification issue!!<br>
-              So kindly meet the warden in person for the clearification. " ;
+              So kindly meet the warden in person for the clarification. " ;
 
 
 $mail->Subject = $email_subject;

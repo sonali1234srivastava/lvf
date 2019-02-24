@@ -73,7 +73,7 @@ if(loggedin())
       {
          $check = 1;
       }
-    if(!preg_match("/^[0-9]+$/", $room_number))
+    if(!preg_match("/^[0-9]+$/", $room_number) || strlen($room_number)!=3)
     {
       $check = 0;
       echo '<div class = "alert alert-danger">Only valid room number.</div>';
@@ -103,7 +103,7 @@ if(loggedin())
       $check = 1;
 
     }
-    if(!preg_match("/^[a-zA-Z- ]+$/", $course))
+    if(!preg_match("/^[a-zA-Z\/ ]+$/", $course))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only letters in the course.</div>';
@@ -111,26 +111,18 @@ if(loggedin())
       {
          $check = 1;
       }
-      if(!preg_match("/^[0-9]+$/", $semester))
+      if(!preg_match("/^[1-8]+$/", $semester) || strlen($semester)!=1)
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">Only valid semester.</div>';
+        echo '<div class = "alert alert-danger">Only valid semester number.</div>';
     }  else
       {
          $check = 1;
       }
-    if(!preg_match("/^[1-3]+$/", $hostel_name))
-    {
-        $check = 0;
-        echo '<div class = "alert alert-danger">Incorrect hostel name.</div>';
-    }  else
-      {
-         $check = 1;
-      }
-    if(!preg_match("/^[0-9]+$/", $leave_period))
+    if(!preg_match("/^[0-9]+$/", $leave_period) || strlen($leave_period)>2)
     {
       $check = 0;
-      echo '<div class = "alert alert-danger">Only valid leave days count.</div>';
+      echo '<div class = "alert alert-danger">Only valid leave days count, maximum of 3 months only.</div>';
     }
     else
     {
@@ -181,10 +173,10 @@ if(loggedin())
       {
          $check = 1;
       }
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $visiting_person_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $visiting_person_address))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
+        echo '<div class = "alert alert-danger">letters numbers or ,./-() only.</div>';
     }  else
       {
          $check = 1;
@@ -199,10 +191,10 @@ if(loggedin())
       $check = 1;
 
     }
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $residence_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $residence_address))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
+        echo '<div class = "alert alert-danger">letters numbers or ,./-() only.</div>';
     }  else
       {
          $check = 1;

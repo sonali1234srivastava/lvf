@@ -71,7 +71,7 @@ if($check==1 && $warden_reset_password==$warden_confirm_reset_password){
                         if (mysqli_stmt_execute($query_prepare_statement)){
 							$query = "UPDATE warden_detail SET token = '' WHERE email = '$warden_email'";
 							mysqli_query($conn,$query);
-							echo '<div class="alert alert-success">Password Reset Successfully, <a href = "http://localhost/leave_form/login/warden/index.php">Click Here</a> to LOGIN.</div>';
+							echo '<div class="alert alert-success">Password Reset Successfully, <a href = "http://13.232.76.179/leave_form/login/warden/index.php">Click Here</a> to LOGIN.</div>';
 		                }
 		                else{
 							echo '<div class="alert alert-danger">' . mysqli_error($connect) . '</div>';

@@ -136,12 +136,12 @@ body{
 <main>
 <div class = "hidden-xs hidden-sm hidden-md ">
 <br><div class="pull-right chip ">
-<a href = "contact.php"><b>Contact us</b></a>
+<a href = "../contact.php"><b>Contact us</b></a>
 </div><br><br>
 </div>
 <div class = "hidden-lg">
 <br><div class="pull-right chip_small ">
-<a href = "contact.php"><b>Contact us</b></a>
+<a href = "../contact.php"><b>Contact us</b></a>
 </div><br><br>
 </div>
 <div class = "container">

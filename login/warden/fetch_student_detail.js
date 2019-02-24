@@ -286,11 +286,22 @@ fetch_student_detail();  					//fetch data
   data:new FormData(this),
     contentType:false,
     processData:false,
+    beforeSend:function(){
+     
+     $("#change_password_action").val("Saving...");
+   $("#change_password_action").removeClass("btn-primary");
+   $("#change_password_action").removeClass("btn-info");
+   $("#change_password_action").removeClass("btn-warning");
+   $("#change_password_action").addClass("btn-success");  
+  
+   },
     success:function(data)
     {
-   $('#warden_change_password_form')[0].reset();
+     $('#warden_change_password_form')[0].reset();
+     $("#change_password_action").val("Save");
      $('#warden_change_password_modal').modal('hide');
      $('#alert_message').html(data);
+     setTimeout('$("#alert_message").html("")',3500);
     }
    });
    setInterval(function(){

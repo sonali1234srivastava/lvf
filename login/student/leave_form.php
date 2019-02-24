@@ -17,7 +17,7 @@ if(!loggedin())
        height : 100vh;
        margin:0;
       padding:0;
-      background-image: url("../../additional/well_bg.jpg");
+      background-image: url("../../additional/bg_logo.jpg");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -39,36 +39,37 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
     }, "Letters only please !" );
   
   $.validator.addMethod( "course", function( value, element ) {
-  return this.optional( element ) || /^[a-z- ]+$/i.test( value );
+  return this.optional( element ) || /^[a-z/ ]+$/i.test( value );
     }, "Letters only please !" );
-
+  
   $.validator.addMethod( "numbersonly", function( value, element ) {
   return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
     }, "Valid number only please !" );
 
-  $.validator.addMethod( "number", function( value, element ) {
-  return this.optional( element ) || /^[0-9]+$/i.test( value );
+  $.validator.addMethod( "leaveno", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length<=2;
+    }, "Valid leave days count only please, maximum of 3 months !" );
+
+  $.validator.addMethod( "room_number", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==3 ;
     }, "Valid room number only please !" );
 
-  $.validator.addMethod( "leave", function( value, element ) {
-  return this.optional( element ) || /^[0-9]+$/i.test( value );
-    }, "Valid days count only please !" );
+  $.validator.addMethod( "semester", function( value, element ) {
+  return this.optional( element ) || /^[1-8]+$/i.test( value ) && value.length==1;
+    }, "Valid semester number only please !" );
 
-  $.validator.addMethod( "student_number", function( value, element ) {
+  $.validator.addMethod( "rollno", function( value, element ) {
+  return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
+    }, "Valid University Roll Number only please !" );
+
+  $.validator.addMethod( "studentno", function( value, element ) {
   return this.optional( element ) || /^[0-9a-z]+$/i.test( value ) && value.length==7;
-    }, "Valid student number only please !" );
+    }, "Valid Student Number only please !" );
 
   $.validator.addMethod( "address", function( value, element ) {
-  return this.optional( element ) || /^[a-z0-9, ]+$/i.test( value );
+  return this.optional( element ) || /^[a-z0-9,.\/()\- ]+$/i.test( value );
     }, "Valid address only please !" );
 
-  $.validator.addMethod( "semester", function( value, element ) {
-  return this.optional( element ) || /^[0-9]+$/i.test( value );
-    }, "Valid semester only please !" );
-
-  $.validator.addMethod( "hostel_name", function( value, element ) {
-  return this.optional( element ) || /^[1-3]+$/i.test( value );
-    }, "Valid hostel number only please !" );
 
    $.validator.setDefaults({
     errorClass: 'text-danger',
@@ -98,39 +99,35 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
                },
                room_number:{
                        required: true,
-                       number: true
-                },
+                       room_number: true
+               },
                roll_number:{
                        required: true,
-                       numbersonly: true
+                       rollno: true
                },
-              student_number:{
+               student_number:{
                        required: true,
-                       student_number: true
-              },
-              course:{
-                       required: true,
-                       course: true
+                       studentno: true
                },
-              semester:{
+               course:{
+                       required: true,
+               },
+               semester:{
                        required: true,
                        semester: true
                },
                hostel_name:{
                        required: true,
-                       hostel_name: true
                },
                leave_period:{
-                      required: true,
-                      leave: true
+                       required: true,
+                       leaveno: true
                },
                days_from:{
                        required: true,
-                       //date: true
                },
                days_to:{
                        required: true,
-                      // date: true
                },
                reason:{
                        required: true,
@@ -162,10 +159,9 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
                },
                date:{
                        required: true,
-                       //date: true
                }, 
-               
-      }
+
+     }
 
   }); 
 
@@ -173,22 +169,28 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 
 </script>
 
-  
+  <!--style="width: 100%; height: 25%;"    style=" float:left; display:inline; width:23%; height:100%; margin: 15px 0 0 0;"  style=" float:left; display:inline; width:77%; height:100%; "style="margin: 50px 0 15px 0;"
+  <center><h2 style="margin: 0 0 20px 150px;" col-sm-offset-4 col-xs-offset-1 col-xs-10-->
 
 
-   <div class = container style="width: 100%; height: 25%;">
-     <div style=" float:left; display:inline; width:23%; height:100%; margin: 15px 0 0 0;">
-       <img src="../../logocsi.png" width="68%" height="100%" class="image">
-     </div>
-     <div style=" float:left; display:inline; width:77%; height:100%; " >
-       <h2 style="margin: 50px 0 15px 0;"><i>AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD </i></h2>
-       <cente ><h2 style="margin: 0 0 20px 150px;"><i>HOSTEL LEAVE APPLICATION FORM</i></h2></center>
-     </div> 
-   </div>
+   <div class = "container">
+    <div class = "row" style="margin: 15px 0 0 0;" width="100%">
+     <span class="control-label col-xs-1 col-sm-3" width="5%" style=" float:left; display:inline;">
+       <img src="../../logocsi.png" width="65%" height="100%" class="image">
+     </span>
+     <span class="control-label col-sm-8 col-xs-8" width="95%" style=" float:left; display:inline;">
+       <h2><i>AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD </i></h2>
+	   <h2><i>HOSTEL LEAVE APPLICATION FORM</i></h2>
+	 </span>  
+	 </div> 
+    <!--<div class = "row" class="col-sm-offset-6 col-sm-8" >
+       
+     </div>--> 
+   
    </br></br></br></br>
 
     
-<div class = "container">
+  <!--<div class = "container">-->
 
 <form   id="leave_form_id">
 <div class = "row">
@@ -205,7 +207,19 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 </div></br>
 <div class = "row">
 <label class="control-label col-sm-2">3. Course/Branch :</label>
-<div class="form-group"><div class="col-sm-2"><input type="text" name="course" id="course" class="form-control"></div></div>
+<div class="form-group"><div class="col-sm-2">
+                        <select name="course" id="course" class="form-control">
+                        <option value="CSE"><b>CSE</b></option>
+                        <option value="IT"><b>IT</b></option>
+                        <option value="ECE"><b>ECE</b></option>
+                        <option value="EN/EI"><b>EN/EI</b></option>
+                        <option value="CE"><b>CE</b></option>
+                        <option value="ME"><b>ME</b></option>
+                        <option value="BCA"><b>BCA</b></option>
+                        <option value="MCA"><b></b>MCA</option>
+                        <option value="MBA"><b>MBA</b></option>
+         </select>
+</div></div>
 <label class="control-label col-sm-2">Semester :</label>
 <div class="form-group"><div class="col-sm-2"><input type="text" name="semester" id="semester" class="form-control"></div></div>
 <label class="control-label col-sm-2">Hostel Name :</label>
@@ -241,7 +255,7 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
 </div></br>
 <!--<input type="text" name="visiting_person_address" id="visiting_person_address" class="form-control" style="row: 3; col:10; " ></div></div></br>-->
 <div class = "row">
-<label class="control-label col-sm-2">8. Applicant's Mobile No.(if any) :</label>
+<label class="control-label col-sm-2">8. Applicant's Mobile No. :</label>
 <div class="form-group"><div class="col-sm-4"><input type="text" name="applicant_number" id="applicant_number" class="form-control" ></div></div>
 </div></br>
 <div class = "row">
@@ -281,22 +295,23 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
  $('#date').datetimepicker({ minDate: new Date() });
                 //$('#change_deadline').datetimepicker({ minDate: new Date() });
           $('#days_from').datetimepicker({
-                    format:'Y/m/d',
+                    format:'Y/m/d H:m',
                     onShow:function( ct ){
                      this.setOptions({
+                      minDate: new Date() ,
                       maxDate:$('#days_to').val()?$('#days_to').val():false
                      })
                     },
-                    timepicker:false
+                    timepicker:true
                  });
                 $('#days_to').datetimepicker({
-                  format:'Y/m/d',
+                  format:'Y/m/d H:m',
                   onShow:function( ct ){
                    this.setOptions({
                     minDate:$('#days_from').val()?$('#days_from').val():false
                                    })
                   },
-                  timepicker:false
+                  timepicker:true
                 });
 
  $(document).ready(function(){
@@ -325,7 +340,67 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
     var residence_address = $('#residence_address').val();
     var student_signature = $('#student_signature').val();
     var date = $('#date').val();
+
     
+    var mf = days_from.substring(5,7);
+    var df = days_from.substring(8,10);
+    var yf = days_from.substring(0,4);
+    
+    var mt = days_to.substring(5,7);
+    var dt = days_to.substring(8,10);
+
+    var leave_count ;
+    var dti = parseInt(dt,10);
+    var leave_period_int = parseInt(leave_period,10);
+    
+    if(mf==mt)
+    {
+      leave_count = dt - df ;
+    }
+    else
+    {
+      if(mf=='01'||mf=='03'||mf=='05'||mf=='07'||mf=='08'||mf=='10'||mf=='12')
+      {
+      	leave_count = dti + (31-df) ;
+      }
+      else if(mf=='04'||mf=='06'||mf=='09'||mf=='11')
+      {
+      	leave_count = dti + (30-df) ;
+      }
+      else
+      {
+      	if(yf%4 == 0)
+      	{
+      		leave_count = dti + (29-df) ;
+      	}
+      	else
+      	{
+            leave_count = dti + (28-df) ;
+      	}
+
+      }
+
+    }	
+
+     var room_number_int = parseInt(room_number,10);
+     var check = 0;
+  if((room_number_int>100) && (room_number_int<128))
+    check = 1;
+  if((room_number_int>200) && (room_number_int<228))
+    check = 1;
+  if((room_number_int>300) && (room_number_int<328))
+    check = 1;
+  if((room_number_int>400) && (room_number_int<428))
+    check = 1;
+  if((room_number_int>500) && (room_number_int<528))
+    check = 1;
+    
+  if(check == 1)
+  {  
+    if(leave_period != '0' && leave_period != '00')
+  {
+    if(leave_period_int == leave_count && leave_period_int <= 30)
+   { 	
 
     if(name != '' && room_number != '' && roll_number != '' && student_number != '' && course != '' && semester != '' && hostel_name != '' && leave_period != '' && days_from != '' && days_to != '' && reason != '' && visiting_person != '' && relation != '' && visiting_person_address != '' && applicant_number != '' && residence_address != '' && student_signature != '' && date != '' )
     {
@@ -368,6 +443,22 @@ $.validator.addMethod( "lettersonly", function( value, element ) {
   {
    alert("All Fields are Required");
   }
+ }
+ else
+ {
+ 	alert("Leave period count does not match the dates mentioned and it could be maximum of THIRTY Days Only !!");
+ }
+} 
+  else
+  {
+   alert("Leave period must not be zero !!");
+  }
+}
+else
+  {
+   alert("Incorrect Room Number !!");
+  }  
+
 
   });
 

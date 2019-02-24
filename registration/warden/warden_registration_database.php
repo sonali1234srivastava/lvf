@@ -217,7 +217,7 @@ function test_input($data)
          $mail->Subject = "Please verify your Email ".$name." !!";
          $mail->Body = "
                 Please click on the link below :<br/><br/>
-             <center><a href = 'http://localhost/leave_form/registration/warden/confirm.php?email=$email&token=$token'>Click Here</a></center>
+             <center><a href = 'http://13.232.76.179/leave_form/registration/warden/confirm.php?email=$email&token=$token'>Click Here</a></center>
          ";
         $mail->addBCC($email);
          if($mail->send())

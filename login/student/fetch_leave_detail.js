@@ -128,10 +128,56 @@ fetch_leave_detail();  					//fetch data
     var date = $('#date').val();
 
 
+    var mf = days_from.substring(5,7);
+    var df = days_from.substring(8,10);
+    var yf = days_from.substring(0,4);
+    
+    var mt = days_to.substring(5,7);
+    var dt = days_to.substring(8,10);
+
+    var leave_count ;
+    var dti = parseInt(dt,10);
+    var leave_period_int = parseInt(leave_period,10);
+    
+    if(mf==mt)
+    {
+      leave_count = dt - df ;
+    }
+    else
+    {
+      if(mf=='01'||mf=='03'||mf=='05'||mf=='07'||mf=='08'||mf=='10'||mf=='12')
+      {
+        leave_count = dti + (31-df) ;
+      }
+      else if(mf=='04'||mf=='06'||mf=='09'||mf=='11')
+      {
+        leave_count = dti + (30-df) ;
+      }
+      else
+      {
+        if(yf%4 == 0)
+        {
+          leave_count = dti + (29-df) ;
+        }
+        else
+        {
+            leave_count = dti + (28-df) ;
+        }
+
+      }
+
+    }
+
+
+    if(leave_period != '0' && leave_period != '00')
+{
+    if(leave_period_int == leave_count && leave_period_int <= 30)
+  {  
+
     if(name != '' && room_number != '' && roll_number != '' && student_number != '' && course != '' && semester != '' && hostel_name != '' && leave_period != '' &&
      days_from != '' && days_to != '' && reason != '' && visiting_person != '' && relation != '' && visiting_person_address != '' && applicant_number != '' &&
       residence_address != '' && student_signature != '' && date != '')
-{
+  {
 
      $.ajax({
    url:"edit_leave_single.php",
@@ -166,6 +212,16 @@ fetch_leave_detail();  					//fetch data
    {
      alert("All Fields are Required");
    }
+ }
+ else
+ {
+  alert("Leave period count does not match the dates mentioned and it could be maximum of THIRTY Days Only !!");
+ }
+} 
+  else
+  {
+   alert("Leave period must not be zero !!");
+  }   
 
   });
 
@@ -250,11 +306,22 @@ fetch_leave_detail();  					//fetch data
   data:new FormData(this),
     contentType:false,
     processData:false,
+    beforeSend:function(){
+     
+     $("#change_password_action").val("Saving...");
+   $("#change_password_action").removeClass("btn-primary");
+   $("#change_password_action").removeClass("btn-info");
+   $("#change_password_action").removeClass("btn-warning");
+   $("#change_password_action").addClass("btn-success");  
+  
+   },
     success:function(data)
     {
    $('#student_change_password_form')[0].reset();
+   $("#change_password_action").val("Save");
      $('#student_change_password_modal').modal('hide');
      $('#alert_message').html(data);
+     setTimeout('$("#alert_message").html("")',3500);
     }
    });
    setInterval(function(){

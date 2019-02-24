@@ -71,7 +71,7 @@ if(!empty($name) && !empty($number) && !empty($email) && !empty($course) && !emp
     else{
        $check = 1;
     }  
-    if(!preg_match("/^[a-zA-Z- ]+$/", $course))
+    if(!preg_match("/^[a-zA-Z-\/ ]+$/", $course))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only letters in the course.</div>';
@@ -79,7 +79,7 @@ if(!empty($name) && !empty($number) && !empty($email) && !empty($course) && !emp
       {
          $check = 1;
       }
-    if(!preg_match("/^[a-zA-Z ]+$/", $branch))
+    if(!preg_match("/^[a-zA-Z-\/ ]+$/", $branch))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only letters in the branch.</div>';
@@ -87,10 +87,10 @@ if(!empty($name) && !empty($number) && !empty($email) && !empty($course) && !emp
       {
          $check = 1;
       }  
-     if(!preg_match("/^[1-4]+$/", $year))
+     if(!preg_match("/^[1-4]+$/", $year) || strlen($year)!=1)
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters or numbers only.</div>';
+        echo '<div class = "alert alert-danger">valid year number only.</div>';
     }  else
       {
          $check = 1;
@@ -105,10 +105,10 @@ if(!empty($name) && !empty($number) && !empty($email) && !empty($course) && !emp
       $check = 1;
 
     }
-    if(!preg_match("/^[1-3]+$/", $hostel_name))
+    if(!preg_match("/^[1-3]+$/", $hostel_name) || strlen($hostel_name)!=1)
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">Invalid hostle name format.</div>';
+        echo '<div class = "alert alert-danger">Invalid hostel name format.</div>';
     }  else
       {
          $check = 1;
@@ -123,10 +123,10 @@ if(!empty($name) && !empty($number) && !empty($email) && !empty($course) && !emp
       $check = 1;
 
     }  
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $home_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $home_address))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
+        echo '<div class = "alert alert-danger">letters numbers or ,./-() only.</div>';
     }  else
       {
          $check = 1;

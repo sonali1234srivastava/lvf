@@ -1,7 +1,8 @@
 <?php
+include '../../core_session.php';
 include '../../connect_db.php';
 include '../../header.php';
-include '../../core_session.php';
+
 
 if(loggedin())
 {
@@ -33,11 +34,11 @@ if(loggedin())
   
 $(function(){
 
-	 /*$.validator.addMethod( "username_email", function( value, element ) {
+	 $.validator.addMethod( "username", function( value, element ) {
   return this.optional( element ) || /^[0-9]+$/i.test( value ) && value.length==10;
     }, "Valid University Roll Number only please !" );
 
-	 $.validator.addMethod( "password", function( value, element ) {
+	 /*$.validator.addMethod( "password", function( value, element ) {
   return this.optional( element ) || /^[a-z0-9$@# ]+$/i.test( value ) && value.length>=7;
     }, "Letters Numbers $ @ # only please and should atleast consist of seven characters." );*/
 
@@ -65,6 +66,7 @@ $(function(){
 
       	    username_email:{
                        required: true,
+                       username: true
                  },
           },
      }); 
@@ -83,8 +85,8 @@ $(function(){
  <form   id="student_forgot_password_form_id" class="form-horizontal">
     <div class = "row">
  <!--<div class="form-group col-xs-12 col-md-8">-->
-       <label class="control-label col-sm-2" for="username_email">Username or Email :</label>
-       <div class="form-group"><div class="col-sm-8"><input type="text" name="username_email" id="username_email" class="form-control" placeholder="Enter Username or Email" ></div>
+       <label class="control-label col-sm-2" for="username_email">Username :</label>
+       <div class="form-group"><div class="col-sm-8"><input type="text" name="username_email" id="username_email" class="form-control" placeholder="Enter Username" ></div>
       </div>
     </div></br></br>
     

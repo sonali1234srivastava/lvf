@@ -35,9 +35,7 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
  $date = $_POST["date"];
 
 
-
-
-  if(!empty($name) && !empty($room_number) && !empty($roll_number) && !empty($student_number) && !empty($course) && !empty($semester) && !empty($hostel_name) && !empty($leave_period) && !empty($days_from) && !empty($days_to) && !empty($reason) && !empty($visiting_person) && !empty($relation) && !empty($visiting_person_address) && !empty($applicant_number) && !empty($residence_address) && !empty($student_signature) && !empty($date))
+   if(!empty($name) && !empty($room_number) && !empty($roll_number) && !empty($student_number) && !empty($course) && !empty($semester) && !empty($hostel_name) && !empty($leave_period) && !empty($days_from) && !empty($days_to) && !empty($reason) && !empty($visiting_person) && !empty($relation) && !empty($visiting_person_address) && !empty($applicant_number) && !empty($residence_address) && !empty($student_signature) && !empty($date))
   {
   	$name = test_input($_POST["name"]);
     $room_number = test_input($_POST["room_number"]);
@@ -68,7 +66,7 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       {
          $check = 1;
       }
-    if(!preg_match("/^[0-9]+$/", $room_number))
+    if(!preg_match("/^[0-9]+$/", $room_number) || strlen($room_number)!=3)
     {
       $check = 0;
       echo '<div class = "alert alert-danger">Only valid room number.</div>';
@@ -98,7 +96,7 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       $check = 1;
 
     }
-    if(!preg_match("/^[a-zA-Z- ]+$/", $course))
+    if(!preg_match("/^[a-zA-Z\/ ]+$/", $course))
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only letters in the course.</div>';
@@ -106,7 +104,7 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       {
          $check = 1;
       }
-      if(!preg_match("/^[0-9]+$/", $semester))
+      if(!preg_match("/^[1-8]+$/", $semester) || strlen($semester)!=1)
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Only valid semester.</div>';
@@ -114,7 +112,7 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       {
          $check = 1;
       }
-    if(!preg_match("/^[1-3]+$/", $hostel_name))
+    if(!preg_match("/^[1-3]+$/", $hostel_name) || strlen($hostel_name)!=1)
     {
         $check = 0;
         echo '<div class = "alert alert-danger">Incorrect hostel name.</div>';
@@ -122,10 +120,10 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       {
          $check = 1;
       }
-    if(!preg_match("/^[0-9]+$/", $leave_period))
+    if(!preg_match("/^[0-9]+$/", $leave_period) || strlen($leave_period)>2)
     {
       $check = 0;
-      echo '<div class = "alert alert-danger">Only valid leave days count.</div>';
+      echo '<div class = "alert alert-danger">Only valid leave days count, maximum of 3 months only.</div>';
     }
     else
     {
@@ -156,10 +154,10 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       {
          $check = 1;
       }
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $visiting_person_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $visiting_person_address))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
+        echo '<div class = "alert alert-danger">letters numbers or ,./-() only.</div>';
     }  else
       {
          $check = 1;
@@ -174,10 +172,10 @@ if(isset($_SESSION["leave_id"])&& !empty($_SESSION["leave_id"]))
       $check = 1;
 
     }
-    if(!preg_match("/^[a-zA-Z0-9, ]+$/", $residence_address))
+    if(!preg_match("/^[a-zA-Z0-9,.\/()\- ]+$/", $residence_address))
     {
         $check = 0;
-        echo '<div class = "alert alert-danger">letters numbers or , only.</div>';
+        echo '<div class = "alert alert-danger">letters numbers or ,./-() only.</div>';
     }  else
       {
          $check = 1;
@@ -231,7 +229,7 @@ else {
   {
     echo 'All fields are required!!';
   }
-   
+ 
  } 	//set
 
 }	//leave session

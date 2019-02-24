@@ -21,7 +21,7 @@ if(isset($_POST["leave_id"]))
 $email_body = "
 
     A student, <b>".$student_name."</b> is requesting for a leave of <b>".$leave_period."</b> day(s) from <b>".$day_from."</b> to <b>".$day_to."</b> on the account of <b>".$reason."</b>.</br>
-      For detailed information, kindly <a href = 'http://localhost/leave_form/login/index.php'>LOGIN</a> and consider the request!!" ;
+      For detailed information, kindly <a href = 'http://13.232.76.179/leave_form/login/index.php'>LOGIN</a> and consider the request!!" ;
 
 $mail->Subject = $email_subject;
 $mail->Body    = $email_body;

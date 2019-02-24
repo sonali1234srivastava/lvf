@@ -6,9 +6,9 @@ if(isset($_POST["username_email"])){
 	$username_email = test_input($_POST["username_email"]);
 	$username_email = mysqli_real_escape_string($conn,$username_email);
 	//echo '<span class="text-success"><b>'.$hod_username_email.'</b></span>';
-	$query = "SELECT id,email FROM student_detail WHERE username = ? OR email = ?";  
+	$query = "SELECT id,email FROM student_detail WHERE username = ?";  
 				$query_prepare_statement = mysqli_prepare($conn, $query);
-		        mysqli_stmt_bind_param($query_prepare_statement, "is", $username_email, $username_email);  
+		        mysqli_stmt_bind_param($query_prepare_statement, "i", $username_email);  
                 if ( mysqli_stmt_execute($query_prepare_statement)) {  
 				
 				  mysqli_stmt_store_result($query_prepare_statement);  //single step security
@@ -29,7 +29,7 @@ if(isset($_POST["username_email"])){
 					$email_subject = "Password Reset Link for LVF";
                     $email_body = "
                     Click on the link below to reset your password!!<br><br>
-                    <center><a href = 'http://localhost/leave_form/login/student/student_reset_password.php?token=$str&email=$student_email'>Click Here</a></center>
+                    <center><a href = 'http://13.232.76.179/leave_form/login/student/student_reset_password.php?token=$str&email=$student_email'>Click Here</a></center>
                     ";
 
                     $mail->Subject = $email_subject;
